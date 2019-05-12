@@ -1,0 +1,98 @@
+applicationApiVersion: v1beta1
+
+properties:
+  name:
+    type: string
+    x-google-marketplace:
+      type: NAME
+
+  namespace:
+    type: string
+    x-google-marketplace:
+      type: NAMESPACE
+
+  axonControllerImage:
+    type: string
+    default: gcr.io/myelin-public/myelin/myelin-axon-controller:v20190512155736
+    x-google-marketplace:
+      type: IMAGE
+      image:
+        generatedProperties:
+          splitToRegistryRepoTag:
+            registry: myelin.repository #gcr.io
+            repo: myelin.axonController.imageName
+            tag: myelin.imageVersion
+
+  deployerControllerImage:
+    type: string
+    default: gcr.io/myelin-public/myelin/myelin-deployer-controller:v20190512155736
+    x-google-marketplace:
+      type: IMAGE
+      image:
+        generatedProperties:
+          splitToRegistryRepoTag:
+            registry: myelin.repository #gcr.io
+            repo: myelin.deployerController.imageName
+            tag: myelin.imageVersion
+
+  metricServerImage:
+    type: string
+    default: gcr.io/myelin-public/myelin/myelin-metric-server:v20190512155736
+    x-google-marketplace:
+      type: IMAGE
+      image:
+        generatedProperties:
+          splitToRegistryRepoTag:
+            registry: myelin.repository #gcr.io
+            repo: myelin.metricServer.imageName
+            tag: myelin.imageVersion
+
+  triggerServerImage:
+    type: string
+    default: gcr.io/myelin-public/myelin/myelin-trigger-server:v20190512155736
+    x-google-marketplace:
+      type: IMAGE
+      image:
+        generatedProperties:
+          splitToRegistryRepoTag:
+            registry: myelin.repository #gcr.io
+            repo: myelin.triggerServer.imageName
+            tag: myelin.imageVersion
+
+  deployerProxyImage:
+    type: string
+    default: gcr.io/myelin-public/myelin/myelin-deployer-proxy:v20190512155736
+    x-google-marketplace:
+      type: IMAGE
+      image:
+        generatedProperties:
+          splitToRegistryRepoTag:
+            registry: myelin.repository #gcr.io
+            repo: myelin.deployerProxy.imageName
+            tag: myelin.imageVersion
+
+  executorImage:
+    type: string
+    default: gcr.io/myelin-public/myelin/myelin-exec:v20190512155736
+    x-google-marketplace:
+      type: IMAGE
+      image:
+        generatedProperties:
+          splitToRegistryRepoTag:
+            registry: myelin.repository #gcr.io
+            repo: myelin.executorImage.imageName
+            tag: myelin.imageVersion
+
+  myelin.serviceAccount.name:
+    type: string
+    x-google-marketplace:
+      type: SERVICE_ACCOUNT
+      serviceAccount:
+        roles:
+          - type: Role
+            rulesType: PREDEFINED
+            rulesFromRoleName: contoller-myelin-role
+
+required:
+- name
+- namespace
