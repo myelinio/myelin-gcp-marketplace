@@ -89,9 +89,19 @@ properties:
       type: SERVICE_ACCOUNT
       serviceAccount:
         roles:
-          - type: Role
+          - type: ClusterRole
             rulesType: PREDEFINED
             rulesFromRoleName: contoller-myelin-role
+
+  myelin.prometheus-op.prometheusOperator.serviceAccount.name:
+    type: string
+    x-google-marketplace:
+      type: SERVICE_ACCOUNT
+      serviceAccount:
+        roles:
+          - type: ClusterRole
+            rulesType: PREDEFINED
+            rulesFromRoleName: prometheus-operator-myelin-role
 
 required:
 - name

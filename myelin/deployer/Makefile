@@ -13,7 +13,8 @@ submit-crd:
 .PHONY: create-roles
 create-roles:
 	kubectl create clusterrolebinding cluster-admin-binding --clusterrole=cluster-admin --user=tamas.jambor@myelin.io
-	kubectl apply -f role/axon-controller-role-ns.yaml
+	kubectl apply -f role/axon-controller-role.yaml
+	kubectl apply -f role/prometheus-operator-role.yaml
 
 .PHONY: build
 build:
@@ -24,6 +25,7 @@ build:
 .PHONY: test-deploy
 test-deploy:
 	kubectl create namespace test-ns
+	kubectl apply -n test-ns -f role/myelin-minimal-role.yaml
 	~/bin/mpdev /scripts/install \
       --deployer=${REGISTRY}/${APP_NAME}/deployer:${MYELIN_VERSION} \
-      --parameters='{"name": "test-deployment3", "namespace": "test-ns"}'
+      --parameters='{"name": "myelin", "namespace": "test-ns"}'
