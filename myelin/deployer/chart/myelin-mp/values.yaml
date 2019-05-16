@@ -16,6 +16,12 @@ global:
 myelin:
   serviceAccount:
     create: false
+  nfs-server:
+    rbac:
+      create: false
+    storageClass:
+      create: false
+      provisionerName: cluster.local/myelin-nfs-server-provisioner
   prometheus-op:
     kubeScheduler:
       enabled: false

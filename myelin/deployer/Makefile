@@ -1,4 +1,4 @@
-MYELIN_VERSION=v0.3.1
+MYELIN_VERSION=v0.3.2
 REGISTRY=gcr.io/myelin-public
 APP_NAME=myelin
 
@@ -15,6 +15,8 @@ create-roles:
 	kubectl create clusterrolebinding cluster-admin-binding --clusterrole=cluster-admin --user=tamas.jambor@myelin.io
 	kubectl apply -f role/axon-controller-role.yaml
 	kubectl apply -f role/prometheus-operator-role.yaml
+	kubectl apply -f role/nfs-provisioner-role.yaml
+	kubectl apply -f role/nfs-provisioner-storageclass.yaml
 
 .PHONY: build
 build:

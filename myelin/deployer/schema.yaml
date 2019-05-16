@@ -13,7 +13,7 @@ properties:
 
   axonControllerImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-axon-controller:v20190512155736
+    default: gcr.io/myelin-public/myelin/myelin-axon-controller:v20190516153136
     x-google-marketplace:
       type: IMAGE
       image:
@@ -25,7 +25,7 @@ properties:
 
   deployerControllerImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-deployer-controller:v20190512155736
+    default: gcr.io/myelin-public/myelin/myelin-deployer-controller:v20190516153136
     x-google-marketplace:
       type: IMAGE
       image:
@@ -37,7 +37,7 @@ properties:
 
   metricServerImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-metric-server:v20190512155736
+    default: gcr.io/myelin-public/myelin/myelin-metric-server:v20190516153136
     x-google-marketplace:
       type: IMAGE
       image:
@@ -49,7 +49,7 @@ properties:
 
   triggerServerImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-trigger-server:v20190512155736
+    default: gcr.io/myelin-public/myelin/myelin-trigger-server:v20190516153136
     x-google-marketplace:
       type: IMAGE
       image:
@@ -61,7 +61,7 @@ properties:
 
   deployerProxyImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-deployer-proxy:v20190512155736
+    default: gcr.io/myelin-public/myelin/myelin-deployer-proxy:v20190516153136
     x-google-marketplace:
       type: IMAGE
       image:
@@ -73,7 +73,7 @@ properties:
 
   executorImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-exec:v20190512155736
+    default: gcr.io/myelin-public/myelin/myelin-exec:v20190516153136
     x-google-marketplace:
       type: IMAGE
       image:
@@ -102,6 +102,16 @@ properties:
           - type: ClusterRole
             rulesType: PREDEFINED
             rulesFromRoleName: prometheus-operator-myelin-role
+
+  myelin.nfs-server.nfs-provisioner.fullname:
+    type: string
+    x-google-marketplace:
+      type: SERVICE_ACCOUNT
+      serviceAccount:
+        roles:
+          - type: ClusterRole
+            rulesType: PREDEFINED
+            rulesFromRoleName: myelin-nfs-provisioner
 
 required:
 - name
