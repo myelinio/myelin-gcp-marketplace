@@ -103,7 +103,7 @@ properties:
             rulesType: PREDEFINED
             rulesFromRoleName: prometheus-operator-myelin-role
 
-  myelin.nfs-server.nfs-provisioner.fullname:
+  myelin.nfs-server.rbac.serviceAccountName:
     type: string
     x-google-marketplace:
       type: SERVICE_ACCOUNT
