@@ -1,4 +1,4 @@
-MYELIN_VERSION=v0.3.2
+MYELIN_VERSION=v0.3.3
 REGISTRY=gcr.io/myelin-public
 APP_NAME=myelin
 
@@ -35,5 +35,5 @@ test-deploy:
 	kubectl create namespace test-ns
 	kubectl apply -n test-ns -f role/myelin-minimal-role.yaml
 	~/bin/mpdev /scripts/install \
-      --deployer=${REGISTRY}/${APP_NAME}/deployer:${MYELIN_VERSION} \
+		  --deployer=${REGISTRY}/${APP_NAME}/deployer:${MYELIN_VERSION} \
       --parameters='{"name": "myelin", "namespace": "test-ns"}'

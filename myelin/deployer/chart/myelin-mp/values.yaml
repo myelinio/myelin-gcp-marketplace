@@ -14,6 +14,7 @@ global:
     create: false
 
 myelin:
+  istioNamespace: istio-system
   serviceAccount:
     create: false
   nfs-server:
@@ -33,6 +34,11 @@ myelin:
     enabled: false
     agent:
       flexVolumeDirPath: /home/kubernetes/flexvolume
+  adminServer:
+    username: admin@myelio.io
+    password: "123456"
+    jwtToken: hhTlyHXBG5imq32C
+    enabled: true
   axonController:
     dockerServer: gcr.io
     dockerNamespace: myelin-public/myelin-images
@@ -63,13 +69,5 @@ myelin:
           secretKeySecret:
             name: myelin-artifacts
             key: secretkey
-  dockerSecret:
-    auths:
-      https://gcr.io:
-        auth:
-  artifacts:
-    accesskey:
-    secretkey:
-  github:
-    sshPrivateKey:
-    sshPublicKey:
+  authenticateGithub:
+    enabled: false

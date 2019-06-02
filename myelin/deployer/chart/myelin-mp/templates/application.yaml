@@ -11,7 +11,21 @@ spec:
     versions: '0.3'
   selector:
     matchLabels:
-      app.kubernetes.io/name: "{{ .Release.Name }}"
+      release: "{{ .Release.Name }}"
   componentKinds:
     - group: batch/v1
       kind: Job
+    - group: apps/v1beta2
+      kind: Deployment
+    - group: v1
+      kind: PersistentVolumeClaim
+    - group: v1
+      kind: Service
+  info:
+    - name: Myelin Admin Server Address
+      type: Reference
+      valueFrom:
+        serviceRef:
+          namespace: {{ .Values.myelin.istioNamespace }}
+          name: istio-ingressgateway
+          path: myelin-admin-webapp/

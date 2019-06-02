@@ -11,9 +11,33 @@ properties:
     x-google-marketplace:
       type: NAMESPACE
 
+  adminServerImage:
+    type: string
+    default: gcr.io/myelin-public/myelin/myelin-admin-server:v0.3.0
+    x-google-marketplace:
+      type: IMAGE
+      image:
+        generatedProperties:
+          splitToRegistryRepoTag:
+            registry: myelin.repository #gcr.io
+            repo: myelin.adminServer.imageName
+            tag: myelin.imageVersion
+
+  adminServerWebappImage:
+    type: string
+    default: gcr.io/myelin-public/myelin/myelin-admin-webapp:v0.1.5-20190602195657
+    x-google-marketplace:
+      type: IMAGE
+      image:
+        generatedProperties:
+          splitToRegistryRepoTag:
+            registry: myelin.repository #gcr.io
+            repo: myelin.adminServer.webappImageName
+            tag: myelin.adminServer.webappImageVersion
+
   axonControllerImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-axon-controller:v20190516153136
+    default: gcr.io/myelin-public/myelin/myelin-axon-controller:v0.3.0
     x-google-marketplace:
       type: IMAGE
       image:
@@ -25,7 +49,7 @@ properties:
 
   deployerControllerImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-deployer-controller:v20190516153136
+    default: gcr.io/myelin-public/myelin/myelin-deployer-controller:v0.3.0
     x-google-marketplace:
       type: IMAGE
       image:
@@ -37,7 +61,7 @@ properties:
 
   metricServerImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-metric-server:v20190516153136
+    default: gcr.io/myelin-public/myelin/myelin-metric-server:v0.3.0
     x-google-marketplace:
       type: IMAGE
       image:
@@ -49,7 +73,7 @@ properties:
 
   triggerServerImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-trigger-server:v20190516153136
+    default: gcr.io/myelin-public/myelin/myelin-trigger-server:v0.3.0
     x-google-marketplace:
       type: IMAGE
       image:
@@ -61,7 +85,7 @@ properties:
 
   deployerProxyImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-deployer-proxy:v20190516153136
+    default: gcr.io/myelin-public/myelin/myelin-deployer-proxy:v0.3.0
     x-google-marketplace:
       type: IMAGE
       image:
@@ -73,7 +97,7 @@ properties:
 
   executorImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-exec:v20190516153136
+    default: gcr.io/myelin-public/myelin/myelin-exec:v0.3.0
     x-google-marketplace:
       type: IMAGE
       image:
@@ -91,7 +115,7 @@ properties:
         roles:
           - type: ClusterRole
             rulesType: PREDEFINED
-            rulesFromRoleName: contoller-myelin-role
+            rulesFromRoleName: myelin-app-role
 
   myelin.prometheus-op.prometheusOperator.serviceAccount.name:
     type: string

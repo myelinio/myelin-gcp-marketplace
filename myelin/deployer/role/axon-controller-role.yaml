@@ -1,13 +1,21 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: contoller-myelin-role
+  name: myelin-app-role
 rules:
+  - apiGroups:
+      - ""
+    resources:
+      - namespaces
+      - namespaces/exec
+    verbs:
+      - list
   - apiGroups:
       - ""
     resources:
       - pods
       - pods/exec
+      - pods/log
     verbs:
       - create
       - get
@@ -60,11 +68,13 @@ rules:
       - axons
       - axons/finalizers
     verbs:
+      - create
       - get
       - list
       - watch
       - update
       - patch
+      - delete
   - apiGroups:
       - myelinproj.io
     resources:
