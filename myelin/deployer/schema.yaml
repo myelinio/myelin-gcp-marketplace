@@ -32,8 +32,8 @@ properties:
         generatedProperties:
           splitToRegistryRepoTag:
             registry: myelin.repository #gcr.io
-            repo: myelin.adminServer.webappImageName
-            tag: myelin.adminServer.webappImageVersion
+            repo: myelin.adminServer.webappServer.ImageName
+            tag: myelin.adminServer.webappServer.ImageVersion
 
   axonControllerImage:
     type: string

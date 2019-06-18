@@ -35,7 +35,7 @@ myelin:
     agent:
       flexVolumeDirPath: /home/kubernetes/flexvolume
   adminServer:
-    username: admin@myelio.io
+    username: admin@myelin.io
     password: "123456"
     jwtToken: hhTlyHXBG5imq32C
     enabled: true
