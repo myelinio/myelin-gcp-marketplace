@@ -20,20 +20,20 @@ properties:
         generatedProperties:
           splitToRegistryRepoTag:
             registry: myelin.repository #gcr.io
-            repo: myelin.adminServer.imageName
+            repo: myelin.adminServer.apiServer.imageName
             tag: myelin.imageVersion
 
   adminServerWebappImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-admin-webapp:v0.1.5-20190602195657
+    default: gcr.io/myelin-public/myelin/myelin-admin-webapp:v0.1.6-20190618214727
     x-google-marketplace:
       type: IMAGE
       image:
         generatedProperties:
           splitToRegistryRepoTag:
             registry: myelin.repository #gcr.io
-            repo: myelin.adminServer.webappServer.ImageName
-            tag: myelin.adminServer.webappServer.ImageVersion
+            repo: myelin.adminServer.webappServer.imageName
+            tag: myelin.adminServer.webappServer.imageVersion
 
   axonControllerImage:
     type: string
