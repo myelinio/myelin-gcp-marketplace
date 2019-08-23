@@ -1,4 +1,4 @@
-MYELIN_VERSION=v0.3.3
+MYELIN_VERSION=0.4
 REGISTRY=gcr.io/myelin-public
 APP_NAME=myelin
 
@@ -9,6 +9,7 @@ submit-crd:
 	kubectl apply -f "https://raw.githubusercontent.com/coreos/prometheus-operator/master/example/prometheus-operator-crd/prometheus.crd.yaml"
 	kubectl apply -f "https://raw.githubusercontent.com/coreos/prometheus-operator/master/example/prometheus-operator-crd/prometheusrule.crd.yaml"
 	kubectl apply -f "https://raw.githubusercontent.com/coreos/prometheus-operator/master/example/prometheus-operator-crd/servicemonitor.crd.yaml"
+	helm install myelin.io/myelin-crd --devel
 
 .PHONY: create-roles
 create-roles:
