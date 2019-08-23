@@ -35,10 +35,28 @@ myelin:
     agent:
       flexVolumeDirPath: /home/kubernetes/flexvolume
   adminServer:
-    username: admin@myelio.io
+    enabled: true
+    enableTLS: false
+    gatewayHosts:
+      - "'*'"
+    username: admin@myelin.io
     password: "123456"
     jwtToken: hhTlyHXBG5imq32C
-    enabled: true
+    apiServer:
+      pullPolicy: Always
+      host: "'*'"
+      rewritePrefix: true
+      prefix: /myelin-admin-api/
+      enabled: true
+    webappServer:
+      pullPolicy: Always
+      apiUrl: "'\\/myelin-admin-api'"
+      authRestUrl: "''"
+      host: "'*'"
+      rewritePrefix: true
+      prefix: /myelin-admin-webapp/
+    modelsPublicApi:
+      enabled: false
   axonController:
     dockerServer: gcr.io
     dockerNamespace: myelin-public/myelin-images
