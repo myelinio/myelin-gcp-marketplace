@@ -25,7 +25,7 @@ properties:
 
   adminServerWebappImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-admin-webapp:v0.1.6-20190618214727
+    default: gcr.io/myelin-public/myelin:v0.1.6
     x-google-marketplace:
       type: IMAGE
       image:
