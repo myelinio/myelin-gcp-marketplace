@@ -9,11 +9,17 @@ myelin-crd:
 rook-ceph:
   enabled: false
 
+marketplace:
+  authenticateDocker:
+    enabled: true
+
 global:
   rbac:
     create: false
 
 myelin:
+  authenticateDocker:
+    enabled: false
   istioNamespace: istio-system
   serviceAccount:
     create: false

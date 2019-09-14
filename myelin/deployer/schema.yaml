@@ -11,6 +11,18 @@ properties:
     x-google-marketplace:
       type: NAMESPACE
 
+  marketplace.dockerSecret:
+    type: string
+    description: Copy your base64 encoded docker secret
+
+  myelin.artifacts.accesskey:
+    type: string
+    description: GCP storage access key
+
+  myelin.artifacts.secretkey:
+    type: string
+    description: GCP storage secret key
+
   adminServerImage:
     type: string
     default: gcr.io/myelin-public/myelin/myelin-admin-server:v0.4.0
@@ -25,7 +37,7 @@ properties:
 
   adminServerWebappImage:
     type: string
-    default: gcr.io/myelin-public/myelin:v0.1.6
+    default: gcr.io/myelin-public/myelin:v0.1.7
     x-google-marketplace:
       type: IMAGE
       image:
@@ -140,3 +152,6 @@ properties:
 required:
 - name
 - namespace
+- marketplace.dockerSecret
+- myelin.artifacts.accesskey
+- myelin.artifacts.secretkey
