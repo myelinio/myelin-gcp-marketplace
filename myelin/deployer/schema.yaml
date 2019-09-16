@@ -13,14 +13,17 @@ properties:
 
   marketplace.dockerSecret:
     type: string
+    name: Docker Secret
     description: Copy your base64 encoded docker secret
 
   myelin.artifacts.accesskey:
     type: string
+    name: Cloud Storage Access Key
     description: GCP storage access key
 
   myelin.artifacts.secretkey:
     type: string
+    name: Cloud Storage Secret Key
     description: GCP storage secret key
 
   adminServerImage:
@@ -121,6 +124,7 @@ properties:
 
   myelin.serviceAccount.name:
     type: string
+    title: Myelin App Service Account
     x-google-marketplace:
       type: SERVICE_ACCOUNT
       serviceAccount:
@@ -131,6 +135,7 @@ properties:
 
   myelin.prometheus-op.prometheusOperator.serviceAccount.name:
     type: string
+    title: Prometheus Operator Service Account
     x-google-marketplace:
       type: SERVICE_ACCOUNT
       serviceAccount:
@@ -141,6 +146,7 @@ properties:
 
   myelin.nfs-server.rbac.serviceAccountName:
     type: string
+    title: NFS Server Service Account
     x-google-marketplace:
       type: SERVICE_ACCOUNT
       serviceAccount:
@@ -150,8 +156,12 @@ properties:
             rulesFromRoleName: myelin-nfs-provisioner
 
 required:
-- name
-- namespace
-- marketplace.dockerSecret
-- myelin.artifacts.accesskey
-- myelin.artifacts.secretkey
+  x-google-marketplace:
+    clusterConstraints:
+      istio:
+        type: REQUIRED
+    - name
+    - namespace
+    - marketplace.dockerSecret
+    - myelin.artifacts.accesskey
+    - myelin.artifacts.secretkey
