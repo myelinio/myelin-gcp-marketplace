@@ -13,18 +13,32 @@ properties:
 
   marketplace.dockerSecret:
     type: string
-    name: Docker Secret
+    title: Docker Secret
     description: Copy your base64 encoded docker secret
 
   myelin.artifacts.accesskey:
     type: string
-    name: Cloud Storage Access Key
+    title: Cloud Storage Access Key
     description: GCP storage access key
 
   myelin.artifacts.secretkey:
     type: string
-    name: Cloud Storage Secret Key
+    title: Cloud Storage Secret Key
     description: GCP storage secret key
+
+  myelin.adminServer.username:
+    type: string
+    default: admin@myelin.io
+    title: Admin Server User Name
+
+  myelin.adminServer.password:
+    type: string
+    title: Admin Server Password
+
+  myelin.adminServer.jwtToken:
+    type: string
+    default: hhTlyHXBG5imq32C
+    title: Admin Server JWT Token
 
   adminServerImage:
     type: string
@@ -156,12 +170,13 @@ properties:
             rulesFromRoleName: myelin-nfs-provisioner
 
 required:
-  x-google-marketplace:
-    clusterConstraints:
-      istio:
-        type: REQUIRED
-    - name
-    - namespace
-    - marketplace.dockerSecret
-    - myelin.artifacts.accesskey
-    - myelin.artifacts.secretkey
+  - name
+  - namespace
+  - marketplace.dockerSecret
+  - myelin.artifacts.accesskey
+  - myelin.artifacts.secretkey
+  - myelin.adminServer.password
+x-google-marketplace:
+  clusterConstraints:
+    istio:
+      type: REQUIRED
