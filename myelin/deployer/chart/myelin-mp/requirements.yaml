@@ -1,4 +1,4 @@
 dependencies:
   - name: myelin
-    version: v0.4.0-20190823113947
+    version: v0.4.0-20190919173612
     repository: https://myelin-helm-charts.storage.googleapis.com/

@@ -42,7 +42,7 @@ properties:
 
   adminServerImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-admin-server:v0.4.0
+    default: gcr.io/myelin-public/myelin/myelin-admin-server:v0.4.1
     x-google-marketplace:
       type: IMAGE
       image:
@@ -50,7 +50,7 @@ properties:
           splitToRegistryRepoTag:
             registry: myelin.repository #gcr.io
             repo: myelin.adminServer.apiServer.imageName
-            tag: myelin.imageVersion
+            tag: myelin.adminServer.apiServer.imageVersion
 
   adminServerWebappImage:
     type: string
@@ -66,7 +66,7 @@ properties:
 
   axonControllerImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-axon-controller:v0.4.0
+    default: gcr.io/myelin-public/myelin/myelin-axon-controller:v0.4.1
     x-google-marketplace:
       type: IMAGE
       image:
@@ -74,11 +74,11 @@ properties:
           splitToRegistryRepoTag:
             registry: myelin.repository #gcr.io
             repo: myelin.axonController.imageName
-            tag: myelin.imageVersion
+            tag: myelin.axonController.imageVersion
 
   deployerControllerImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-deployer-controller:v0.4.0
+    default: gcr.io/myelin-public/myelin/myelin-deployer-controller:v0.4.1
     x-google-marketplace:
       type: IMAGE
       image:
@@ -86,11 +86,11 @@ properties:
           splitToRegistryRepoTag:
             registry: myelin.repository #gcr.io
             repo: myelin.deployerController.imageName
-            tag: myelin.imageVersion
+            tag: myelin.deployerController.imageVersion
 
   metricServerImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-metric-server:v0.4.0
+    default: gcr.io/myelin-public/myelin/myelin-metric-server:v0.4.1
     x-google-marketplace:
       type: IMAGE
       image:
@@ -98,11 +98,11 @@ properties:
           splitToRegistryRepoTag:
             registry: myelin.repository #gcr.io
             repo: myelin.metricServer.imageName
-            tag: myelin.imageVersion
+            tag: myelin.metricServer.imageVersion
 
   triggerServerImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-trigger-server:v0.4.0
+    default: gcr.io/myelin-public/myelin/myelin-trigger-server:v0.4.1
     x-google-marketplace:
       type: IMAGE
       image:
@@ -110,11 +110,23 @@ properties:
           splitToRegistryRepoTag:
             registry: myelin.repository #gcr.io
             repo: myelin.triggerServer.imageName
-            tag: myelin.imageVersion
+            tag: myelin.triggerServer.imageVersion
+
+  triggerClientImage:
+    type: string
+    default: gcr.io/myelin-public/myelin/myelin-trigger-client:v0.4.1
+    x-google-marketplace:
+      type: IMAGE
+      image:
+        generatedProperties:
+          splitToRegistryRepoTag:
+            registry: myelin.repository #gcr.io
+            repo: myelin.triggerClient.imageName
+            tag: myelin.triggerClient.imageVersion
 
   deployerProxyImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-deployer-proxy:v0.4.0
+    default: gcr.io/myelin-public/myelin/myelin-deployer-proxy:v0.4.1
     x-google-marketplace:
       type: IMAGE
       image:
@@ -122,11 +134,11 @@ properties:
           splitToRegistryRepoTag:
             registry: myelin.repository #gcr.io
             repo: myelin.deployerProxy.imageName
-            tag: myelin.imageVersion
+            tag: myelin.deployerProxy.imageVersion
 
   executorImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-exec:v0.4.0
+    default: gcr.io/myelin-public/myelin/myelin-exec:v0.4.1
     x-google-marketplace:
       type: IMAGE
       image:
@@ -134,7 +146,7 @@ properties:
           splitToRegistryRepoTag:
             registry: myelin.repository #gcr.io
             repo: myelin.executorImage.imageName
-            tag: myelin.imageVersion
+            tag: myelin.executorImage.imageVersion
 
   myelin.serviceAccount.name:
     type: string
