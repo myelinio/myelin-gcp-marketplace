@@ -192,3 +192,27 @@ x-google-marketplace:
   clusterConstraints:
     istio:
       type: REQUIRED
+
+form:
+  - widget: help
+    description: >-
+      <br><b>Thank you for using Myelin!</b><P><br>
+      <b>Before deploying Myelin to your cluster, go through
+      <a href="https://myelin.io/docs/ops/setup/gcp/gcp_marketplace_prerequisites/">these initial installation steps.</a><P>
+      <b>Namespace:</b> select a namespace that has istio-injection enabled.<P>
+      <b>App instance name: name the application.<P>
+      <b>Docker Secret:</b> To obtain this token, go to IAM ->
+      <a href="https://console.cloud.google.com/iam-admin/serviceaccounts">Service Accounts</a>, click on <i>Actions</i> for the
+      service account that you'd like to use, then click <i>Create key</i>. Download the key as JSON then convert the file to
+      a base64 encoded string: echo -n '_json_key:' | cat - key.json | base64<P>
+      Enable s3 interoperability for Google Storage <a href="https://console.cloud.google.com/storage/settings">here</a>.
+      Select the interoperability tab and create a new key, which can be used for the following:<P>
+      <b>Cloud Storage Access Key:</b> gcp access key<P>
+      <b>Cloud Storage Secret Key:</b> gcp secret key<P>
+      <b>Admin Server User Name:</b> Myelin UI user name can be set here.<P>
+      <b>Admin Server Password:</b> Myelin UI password to set here.<P>
+      <b>Admin Server JWT Token:</b> Myelin UI JWT token.<P>
+
+      <b>Service accounts:</b> These service accounts are recommended to be kept as <i>create a new service account</i>,
+      because they are linked to cluster roles that are created as part of
+      <a href="https://myelin.io/docs/ops/setup/gcp/gcp_marketplace_prerequisites/">the initial installation steps.</a>
