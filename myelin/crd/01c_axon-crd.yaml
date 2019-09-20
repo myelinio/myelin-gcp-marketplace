@@ -1,0 +1,13 @@
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  name: axons.myelinproj.io
+spec:
+  group: myelinproj.io
+  version: v1alpha1
+  scope: Namespaced
+  names:
+    kind: Axon
+    plural: axons
+    shortNames:
+      - ax
