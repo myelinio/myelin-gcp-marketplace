@@ -231,7 +231,7 @@ form:
       <b>App instance name: name the application.<P>
       <b>Myelin Licence:</b> Request a 30 day fully functional licence from <a href="https://myelin.io/#licence">here</a><P>
       <b>Google Container Registry namespace:</b> This is the namespace that Myelin uses to store build images (PROJECT_ID/namespace). Myelin automatically creates this namespace if it does not exist.<P>
-      <b>Buckets:</b> Specify the buckets Myelin can use to store logs, along with their region<P>
+      <b>Buckets:</b> Specify the buckets and their region which Myelin can use to store logs.<P>
       <b>Docker Secret:</b> To obtain this token, go to IAM ->
       <a href="https://console.cloud.google.com/iam-admin/serviceaccounts">Service Accounts</a>, click on <i>Actions</i> for the
       service account that you'd like to use, then click <i>Create key</i>. Download the key as JSON then convert the file to
