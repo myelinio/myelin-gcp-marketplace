@@ -58,14 +58,11 @@ myelin:
       enabled: false
   axonController:
     dockerServer: gcr.io
-    dockerNamespace: myelin-public/myelin-images
     config:
       artifactRepository:
         archiveLogs: true
         s3:
-          bucket: myelin-dev
           endpoint: storage.googleapis.com
-          region: eu-west-1
           accessKeySecret:
             name: myelin-artifacts
             key: accesskey

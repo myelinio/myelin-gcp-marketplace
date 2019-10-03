@@ -11,6 +11,34 @@ properties:
     x-google-marketplace:
       type: NAMESPACE
 
+  myelin.licence:
+    type: string
+    title: Myelin Licence
+    description: Licence
+
+  axonController.dockerNamespace:
+    type: string
+    title: Google Container Registry namespace
+    description: Namespace where Myelin stores images
+
+  axonController.config.artifactRepository.s3.bucket:
+    type: string
+    title: Axon logs bucket
+    description: Axon controller saves logs in this bucket
+
+  axonController.config.artifactRepository.s3.region:
+    type: string
+    title: Axon logs bucket region
+
+  deployerController.config.artifactRepository.s3.bucket:
+    type: string
+    title: Deployer logs bucket
+    description: Deployer controller saves logs in this bucket
+
+  deployerController.config.artifactRepository.s3.region:
+    type: string
+    title: Deployer logs bucket region
+
   marketplace.dockerSecret:
     type: string
     title: Docker Secret
@@ -201,6 +229,9 @@ form:
       <a href="https://myelin.io/docs/ops/setup/gcp/gcp_marketplace_prerequisites/">these initial installation steps.</a><P>
       <b>Namespace:</b> select a namespace that has istio-injection enabled.<P>
       <b>App instance name: name the application.<P>
+      <b>Myelin Licence:</b> Request a 30 day fully functional licence from <a href="https://myelin.io/#licence">here</a><P>
+      <b>Google Container Registry namespace:</b> This is the namespace that Myelin uses to store build images (PROJECT_ID/namespace)<P>
+      <b>Buckets:</b> Specify the buckets Myelin can use to store logs, along with their region<P>
       <b>Docker Secret:</b> To obtain this token, go to IAM ->
       <a href="https://console.cloud.google.com/iam-admin/serviceaccounts">Service Accounts</a>, click on <i>Actions</i> for the
       service account that you'd like to use, then click <i>Create key</i>. Download the key as JSON then convert the file to
