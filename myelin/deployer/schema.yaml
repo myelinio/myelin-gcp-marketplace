@@ -186,8 +186,200 @@ properties:
           Service account for the controller.
         roles:
           - type: ClusterRole
-            rulesType: PREDEFINED
-            rulesFromRoleName: myelin-app-role
+            rulesType: CUSTOM
+            rules:
+              - apiGroups:
+                  - ""
+                resources:
+                  - namespaces
+                  - namespaces/exec
+                verbs:
+                  - list
+              - apiGroups:
+                  - ""
+                resources:
+                  - pods
+                  - pods/exec
+                  - pods/log
+                verbs:
+                  - create
+                  - get
+                  - list
+                  - watch
+                  - update
+                  - patch
+                  - delete
+              - apiGroups:
+                  - ""
+                resources:
+                  - configmaps
+                verbs:
+                  - create
+                  - get
+                  - list
+                  - watch
+                  - update
+                  - patch
+                  - delete
+              - apiGroups:
+                  - ""
+                resources:
+                  - secrets
+                verbs:
+                  - get
+              - apiGroups:
+                  - ""
+                resources:
+                  - persistentvolumeclaims
+                verbs:
+                  - create
+                  - delete
+              - apiGroups:
+                  - myelinproj.io
+                resources:
+                  - workflows
+                  - workflows/finalizers
+                verbs:
+                  - create
+                  - get
+                  - list
+                  - watch
+                  - update
+                  - patch
+                  - delete
+              - apiGroups:
+                  - myelinproj.io
+                resources:
+                  - axons
+                  - axons/finalizers
+                verbs:
+                  - create
+                  - get
+                  - list
+                  - watch
+                  - update
+                  - patch
+                  - delete
+              - apiGroups:
+                  - myelinproj.io
+                resources:
+                  - deployers
+                  - deployers/finalizers
+                verbs:
+                  - create
+                  - get
+                  - list
+                  - watch
+                  - update
+                  - patch
+                  - delete
+              - apiGroups:
+                  - machinelearning.seldon.io
+                resources:
+                  - seldondeployments
+                  - seldondeployments/finalizers
+                verbs:
+                  - create
+                  - get
+                  - list
+                  - watch
+                  - update
+                  - patch
+                  - delete
+              - apiGroups:
+                  - monitoring.coreos.com
+                resources:
+                  - alertmanagers
+                  - prometheuses
+                  - servicemonitors
+                  - prometheusrules
+                verbs:
+                  - create
+                  - get
+                  - list
+                  - watch
+                  - update
+                  - patch
+                  - delete
+              # Deployer
+              - apiGroups:
+                  - apps
+                resources:
+                  - deployments
+                  - deployments/exec
+                verbs:
+                  - create
+                  - get
+                  - list
+                  - watch
+                  - update
+                  - patch
+                  - delete
+              - apiGroups:
+                  - ""
+                resources:
+                  - services
+                  - services/exec
+                verbs:
+                  - create
+                  - get
+                  - list
+                  - watch
+                  - update
+                  - patch
+                  - delete
+              - apiGroups:
+                  - "networking.istio.io"
+                resources:
+                  - virtualservices
+                  - virtualservices/exec
+                verbs:
+                  - create
+                  - get
+                  - list
+                  - watch
+                  - update
+                  - patch
+                  - delete
+              - apiGroups:
+                  - "networking.istio.io"
+                resources:
+                  - destinationrules
+                  - destinationrules/exec
+                verbs:
+                  - create
+                  - get
+                  - list
+                  - watch
+                  - update
+                  - patch
+                  - delete
+              - apiGroups:
+                  - "networking.istio.io"
+                resources:
+                  - gateways
+                  - gateways/exec
+                verbs:
+                  - create
+                  - get
+                  - list
+                  - watch
+                  - update
+                  - patch
+                  - delete
+              - apiGroups:
+                  - "batch"
+                resources:
+                  - cronjobs
+                  - cronjobs/exec
+                verbs:
+                  - create
+                  - get
+                  - list
+                  - watch
+                  - update
+                  - patch
+                  - delete
 
   myelin.prometheus-op.prometheusOperator.serviceAccount.name:
     type: string
@@ -199,8 +391,69 @@ properties:
           Service account of the Prometheus Operator
         roles:
           - type: ClusterRole
-            rulesType: PREDEFINED
-            rulesFromRoleName: prometheus-operator-myelin-role
+            rulesType: CUSTOM
+            rules:
+              - apiGroups:
+                  - apiextensions.k8s.io
+                resources:
+                  - customresourcedefinitions
+                verbs:
+                  - '*'
+              - apiGroups:
+                  - "monitoring.coreos.com"
+                resources:
+                  - alertmanagers
+                  - prometheuses
+                  - prometheuses/finalizers
+                  - alertmanagers/finalizers
+                  - servicemonitors
+                  - prometheusrules
+                verbs:
+                  - '*'
+              - apiGroups:
+                  - apps
+                resources:
+                  - statefulsets
+                verbs:
+                  - '*'
+              - apiGroups:
+                  - ""
+                resources:
+                  - configmaps
+                  - secrets
+                verbs:
+                  - '*'
+              - apiGroups:
+                  - ""
+                resources:
+                  - pods
+                verbs:
+                  - list
+                  - delete
+              - apiGroups:
+                  - ""
+                resources:
+                  - services
+                  - endpoints
+                verbs:
+                  - get
+                  - create
+                  - update
+              - apiGroups:
+                  - ""
+                resources:
+                  - nodes
+                verbs:
+                  - list
+                  - watch
+              - apiGroups:
+                  - ""
+                resources:
+                  - namespaces
+                verbs:
+                  - get
+                  - list
+                  - watch
 
   myelin.nfs-server.rbac.serviceAccountName:
     type: string
@@ -212,8 +465,30 @@ properties:
           Service account to use for NFS
         roles:
           - type: ClusterRole
-            rulesType: PREDEFINED
-            rulesFromRoleName: myelin-nfs-provisioner
+            rulesType: CUSTOM
+            rules:
+              - apiGroups: [""]
+                resources: ["persistentvolumes"]
+                verbs: ["get", "list", "watch", "create", "delete"]
+              - apiGroups: [""]
+                resources: ["persistentvolumeclaims"]
+                verbs: ["get", "list", "watch", "update"]
+              - apiGroups: ["storage.k8s.io"]
+                resources: ["storageclasses"]
+                verbs: ["get", "list", "watch"]
+              - apiGroups: [""]
+                resources: ["events"]
+                verbs: ["list", "watch", "create", "update", "patch"]
+              - apiGroups: [""]
+                resources: ["services", "endpoints"]
+                verbs: ["get"]
+              - apiGroups: ["extensions"]
+                resources: ["podsecuritypolicies"]
+                resourceNames: ["nfs-provisioner"]
+                verbs: ["use"]
+              - apiGroups: [""]
+                resources: ["endpoints"]
+                verbs: ["get", "list", "watch", "create", "delete", "update", "patch"]
 
 required:
   - name
