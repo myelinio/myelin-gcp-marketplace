@@ -1,4 +1,4 @@
-MYELIN_VERSION=0.4
+MYELIN_VERSION=0.6
 REGISTRY=gcr.io/myelin-public
 APP_NAME=myelin
 NAMESPACE=test-ns
@@ -10,7 +10,8 @@ submit-crd:
 	kubectl apply -f "https://raw.githubusercontent.com/coreos/prometheus-operator/master/example/prometheus-operator-crd/prometheus.crd.yaml"
 	kubectl apply -f "https://raw.githubusercontent.com/coreos/prometheus-operator/master/example/prometheus-operator-crd/prometheusrule.crd.yaml"
 	kubectl apply -f "https://raw.githubusercontent.com/coreos/prometheus-operator/master/example/prometheus-operator-crd/servicemonitor.crd.yaml"
-	helm install myelin.io/myelin-crd --devel
+	kubectl apply -f "https://raw.githubusercontent.com/GoogleCloudPlatform/marketplace-k8s-app-tools/master/crd/app-crd.yaml"
+	helm install --devel myelin-app-crd myelin.io/myelin-crd
 
 .PHONY: create-roles
 create-roles:
@@ -37,5 +38,11 @@ test-deploy:
 	kubectl label namespace test-ns istio-injection=enabled
 	kubectl apply -n ${NAMESPACE} -f role/myelin-minimal-role.yaml
 	~/bin/mpdev install \
+		  --deployer=${REGISTRY}/${APP_NAME}/deployer:${MYELIN_VERSION} \
+      --parameters='{"name": "myelin", "namespace": "test-ns"}'
+
+.PHONY: validate
+verify:
+	~/bin/mpdev verify \
 		  --deployer=${REGISTRY}/${APP_NAME}/deployer:${MYELIN_VERSION} \
       --parameters='{"name": "myelin", "namespace": "test-ns"}'

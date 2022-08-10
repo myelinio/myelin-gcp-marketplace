@@ -1,0 +1,85 @@
+applicationApiVersion: v1beta1
+
+properties:
+  marketplace.dockerSecret:
+    type: string
+    title: Docker Secret
+    description: Copy your base64 encoded docker secret
+    default: none
+
+  myelin.artifacts.accesskey:
+    type: string
+    title: Cloud Storage Access Key
+    description: GCP storage access key
+    default: none
+
+  myelin.artifacts.secretkey:
+    type: string
+    title: Cloud Storage Secret Key
+    description: GCP storage secret key
+    default: none
+
+  myelin.adminServer.adminUser:
+    type: string
+    default: admin
+
+  myelin.adminServer.adminPass:
+    type: string
+    default: password
+
+  myelin.adminServer.jwtToken:
+    type: string
+    default: none
+
+  myelin.adminServer.jwtKey:
+    type: string
+    default: none
+
+  myelin.prometheus.namespace:
+    type: string
+    default: prometheus
+
+  myelin.prometheus.serviceName:
+    type: string
+    default: prometheus-operated
+
+  myelin.prometheus-pushgateway.namespace:
+    type: string
+    default: prometheus
+
+  myelin.prometheus-pushgateway.serviceName:
+    type: string
+    default: myelin-prometheus-pushgateway
+
+  myelin.axonController.prometheusRules.namespace:
+    type: string
+    default: prometheus
+
+  myelin.adminServer.oidc.clientId:
+    type: string
+    default: none
+
+  myelin.adminServer.oidc.clientSecret:
+    type: string
+    title: OIDC client secret
+    default: none
+
+  myelin.adminServer.oidc.nonce:
+    type: string
+    default: none
+
+  myelin.adminServer.oidc.endpoint:
+    type: string
+    default: none
+
+  myelin.adminServer.oidc.scope:
+    type: string
+    default: none
+
+  myelin.adminServer.oidc.redirectUri:
+    type: string
+    default: none
+
+required:
+  - name
+  - namespace

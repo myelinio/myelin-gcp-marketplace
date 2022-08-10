@@ -44,34 +44,76 @@ properties:
     type: string
     title: Docker Secret
     description: Copy your base64 encoded docker secret
-    default: none
 
   myelin.artifacts.accesskey:
     type: string
     title: Cloud Storage Access Key
     description: GCP storage access key
-    default: none
 
   myelin.artifacts.secretkey:
     type: string
     title: Cloud Storage Secret Key
     description: GCP storage secret key
-    default: none
 
-  myelin.adminServer.username:
+  myelin.adminServer.adminUser:
     type: string
-    default: admin@myelin.io
-    title: Admin Server User Name
+    title: Admin server user name
 
-  myelin.adminServer.password:
+  myelin.adminServer.adminPass:
     type: string
-    title: Admin Server Password
-    default: default
+    title: Admin server password
 
   myelin.adminServer.jwtToken:
     type: string
-    default: hhTlyHXBG5imq32C
-    title: Admin Server JWT Token
+    title: Admin server JWT token
+
+  myelin.adminServer.jwtKey:
+    type: string
+    title: Admin server JWT key
+
+  myelin.prometheus.namespace:
+    type: string
+    title: Prometheus namespace
+
+  myelin.prometheus.serviceName:
+    type: string
+    title: Prometheus service name
+
+  myelin.prometheus-pushgateway.namespace:
+    type: string
+    title: Prometheus pushgateway namespace
+
+  myelin.prometheus-pushgateway.serviceName:
+    type: string
+    title: Prometheus pushgateway service name
+
+  myelin.axonController.prometheusRules.namespace:
+    type: string
+    title: Prometheus rules namespace
+
+  myelin.adminServer.oidc.clientId:
+    type: string
+    title: OIDC client id
+
+  myelin.adminServer.oidc.clientSecret:
+    type: string
+    title: OIDC client secret
+
+  myelin.adminServer.oidc.nonce:
+    type: string
+    title: OIDC nonce
+
+  myelin.adminServer.oidc.endpoint:
+    type: string
+    title: OIDC endpoint
+
+  myelin.adminServer.oidc.scope:
+    type: string
+    title: OIDC scope
+
+  myelin.adminServer.oidc.redirectUri:
+    type: string
+    title: OIDC redirect uri
 
   adminServerImage:
     type: string
@@ -498,6 +540,7 @@ properties:
 required:
   - name
   - namespace
+
 x-google-marketplace:
   clusterConstraints:
     istio:
