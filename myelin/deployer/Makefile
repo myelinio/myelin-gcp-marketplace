@@ -1,7 +1,7 @@
 MYELIN_VERSION=0.4
 REGISTRY=gcr.io/myelin-public
 APP_NAME=myelin
-NAMESPACE=myelin-ns
+NAMESPACE=test-ns
 
 .PHONY: submit-crd
 submit-crd:
@@ -29,14 +29,13 @@ tiller:
 .PHONY: build
 build:
 	helm dependency build chart/myelin-mp
-	docker build --tag ${REGISTRY}/${APP_NAME}/deployer:${MYELIN_VERSION} .
-	docker push ${REGISTRY}/${APP_NAME}/deployer:${MYELIN_VERSION}
+	docker buildx build --platform linux/amd64 --push --tag ${REGISTRY}/${APP_NAME}/deployer:${MYELIN_VERSION} .
 
 .PHONY: test-deploy
 test-deploy:
-	kubectl create namespace ${NAMESPACE}
-	kubectl label namespace ${NAMESPACE} istio-injection=enabled
+	kubectl create namespace test-ns
+	kubectl label namespace test-ns istio-injection=enabled
 	kubectl apply -n ${NAMESPACE} -f role/myelin-minimal-role.yaml
-	~/bin/mpdev /scripts/install \
+	~/bin/mpdev install \
 		  --deployer=${REGISTRY}/${APP_NAME}/deployer:${MYELIN_VERSION} \
       --parameters='{"name": "myelin", "namespace": "test-ns"}'

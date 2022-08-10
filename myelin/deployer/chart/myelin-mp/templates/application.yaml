@@ -3,12 +3,14 @@ kind: Application
 metadata:
   name: "{{ .Release.Name }}"
   namespace: "{{ .Release.Namespace }}"
+  annotations:
+    marketplace.cloud.google.com/deploy-info: '{"partner_id": "19388212", "product_id": "myelin", "partner_name": "Myelin"}'
   labels:
     app.kubernetes.io/name: "{{ .Release.Name }}"
 spec:
   descriptor:
     type: Myelin
-    versions: '0.3'
+    version: '0.4'
   selector:
     matchLabels:
       release: "{{ .Release.Name }}"

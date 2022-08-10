@@ -20,6 +20,7 @@ properties:
     type: string
     title: Google Container Registry namespace
     description: Namespace where Myelin stores images
+    default: built-images
 
   myelin.axonController.config.artifactRepository.s3.bucket:
     type: string
@@ -43,16 +44,19 @@ properties:
     type: string
     title: Docker Secret
     description: Copy your base64 encoded docker secret
+    default: none
 
   myelin.artifacts.accesskey:
     type: string
     title: Cloud Storage Access Key
     description: GCP storage access key
+    default: none
 
   myelin.artifacts.secretkey:
     type: string
     title: Cloud Storage Secret Key
     description: GCP storage secret key
+    default: none
 
   myelin.adminServer.username:
     type: string
@@ -62,6 +66,7 @@ properties:
   myelin.adminServer.password:
     type: string
     title: Admin Server Password
+    default: default
 
   myelin.adminServer.jwtToken:
     type: string
@@ -70,7 +75,7 @@ properties:
 
   adminServerImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-admin-server:v0.4.1
+    default: gcr.io/myelin-public/myelin/myelin-admin-server:v0.6.0
     x-google-marketplace:
       type: IMAGE
       image:
@@ -82,7 +87,7 @@ properties:
 
   adminServerWebappImage:
     type: string
-    default: gcr.io/myelin-public/myelin:v0.1.7
+    default: gcr.io/myelin-public/myelin:v0.1.21
     x-google-marketplace:
       type: IMAGE
       image:
@@ -94,7 +99,7 @@ properties:
 
   axonControllerImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-axon-controller:v0.4.1
+    default: gcr.io/myelin-public/myelin/myelin-axon-controller:v0.6.0
     x-google-marketplace:
       type: IMAGE
       image:
@@ -106,7 +111,7 @@ properties:
 
   deployerControllerImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-deployer-controller:v0.4.1
+    default: gcr.io/myelin-public/myelin/myelin-deployer-controller:v0.6.0
     x-google-marketplace:
       type: IMAGE
       image:
@@ -118,7 +123,7 @@ properties:
 
   metricServerImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-metric-server:v0.4.1
+    default: gcr.io/myelin-public/myelin/myelin-metric-server:v0.6.0
     x-google-marketplace:
       type: IMAGE
       image:
@@ -130,7 +135,7 @@ properties:
 
   triggerServerImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-trigger-server:v0.4.1
+    default: gcr.io/myelin-public/myelin/myelin-trigger-server:v0.6.0
     x-google-marketplace:
       type: IMAGE
       image:
@@ -142,7 +147,7 @@ properties:
 
   triggerClientImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-trigger-client:v0.4.1
+    default: gcr.io/myelin-public/myelin/myelin-trigger-client:v0.6.0
     x-google-marketplace:
       type: IMAGE
       image:
@@ -154,7 +159,7 @@ properties:
 
   deployerProxyImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-deployer-proxy:v0.4.1
+    default: gcr.io/myelin-public/myelin/myelin-deployer-proxy:v0.6.0
     x-google-marketplace:
       type: IMAGE
       image:
@@ -166,7 +171,7 @@ properties:
 
   executorImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-exec:v0.4.1
+    default: gcr.io/myelin-public/myelin/myelin-exec:v0.6.0
     x-google-marketplace:
       type: IMAGE
       image:
@@ -493,10 +498,6 @@ properties:
 required:
   - name
   - namespace
-  - marketplace.dockerSecret
-  - myelin.artifacts.accesskey
-  - myelin.artifacts.secretkey
-  - myelin.adminServer.password
 x-google-marketplace:
   clusterConstraints:
     istio:
