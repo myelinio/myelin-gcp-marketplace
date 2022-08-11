@@ -1,13 +1,13 @@
 myelin:
   prometheus:
     namespace: default
-  alermanagerconfig:
-    enabled: false
-  serviceMonitor:
+  alertmanagerconfig:
     enabled: false
   nfs-server:
     enabled: false
   adminServer:
     enabled: false
   alertmanager:
+    enabled: false
+  prometheus-pushgateway:
     enabled: false
