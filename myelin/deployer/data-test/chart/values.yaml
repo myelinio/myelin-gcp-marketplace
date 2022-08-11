@@ -1,0 +1,13 @@
+myelin:
+  prometheus:
+    namespace: default
+  alermanagerconfig:
+    enabled: false
+  serviceMonitor:
+    enabled: false
+  nfs-server:
+    enabled: false
+  adminServer:
+    enabled: false
+  alertmanager:
+    enabled: false

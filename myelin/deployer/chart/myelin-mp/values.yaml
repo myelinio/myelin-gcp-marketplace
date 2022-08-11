@@ -85,3 +85,7 @@ myelin:
             key: secretkey
   authenticateGithub:
     enabled: false
+  mpi-operator:
+    enabled: false
+  tf-job-operator:
+    enabled: false

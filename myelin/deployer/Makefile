@@ -44,5 +44,4 @@ test-deploy:
 .PHONY: validate
 verify:
 	~/bin/mpdev verify \
-		  --deployer=${REGISTRY}/${APP_NAME}/deployer:${MYELIN_VERSION} \
-      --parameters='{"name": "myelin", "namespace": "test-ns"}'
+		  --deployer=${REGISTRY}/${APP_NAME}/deployer:${MYELIN_VERSION}

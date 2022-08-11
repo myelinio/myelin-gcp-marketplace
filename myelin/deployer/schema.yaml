@@ -129,7 +129,7 @@ properties:
 
   adminServerWebappImage:
     type: string
-    default: gcr.io/myelin-public/myelin:v0.1.21
+    default: gcr.io/myelin-public/myelin:0.1.21
     x-google-marketplace:
       type: IMAGE
       image:
