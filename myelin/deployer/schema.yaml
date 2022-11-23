@@ -117,7 +117,7 @@ properties:
 
   adminServerImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-admin-server:v0.6.0
+    default: gcr.io/myelin-public/myelin/myelin-admin-server:v0.8.0
     x-google-marketplace:
       type: IMAGE
       image:
@@ -129,7 +129,7 @@ properties:
 
   adminServerWebappImage:
     type: string
-    default: gcr.io/myelin-public/myelin:0.1.21
+    default: gcr.io/myelin-public/myelin:v0.1.22
     x-google-marketplace:
       type: IMAGE
       image:
@@ -141,7 +141,7 @@ properties:
 
   axonControllerImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-axon-controller:v0.6.0
+    default: gcr.io/myelin-public/myelin/myelin-axon-controller:v0.8.0
     x-google-marketplace:
       type: IMAGE
       image:
@@ -153,7 +153,7 @@ properties:
 
   deployerControllerImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-deployer-controller:v0.6.0
+    default: gcr.io/myelin-public/myelin/myelin-deployer-controller:v0.8.0
     x-google-marketplace:
       type: IMAGE
       image:
@@ -165,7 +165,7 @@ properties:
 
   metricServerImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-metric-server:v0.6.0
+    default: gcr.io/myelin-public/myelin/myelin-metric-server:v0.8.0
     x-google-marketplace:
       type: IMAGE
       image:
@@ -177,7 +177,7 @@ properties:
 
   triggerServerImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-trigger-server:v0.6.0
+    default: gcr.io/myelin-public/myelin/myelin-trigger-server:v0.8.0
     x-google-marketplace:
       type: IMAGE
       image:
@@ -189,7 +189,7 @@ properties:
 
   triggerClientImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-trigger-client:v0.6.0
+    default: gcr.io/myelin-public/myelin/myelin-trigger-client:v0.8.0
     x-google-marketplace:
       type: IMAGE
       image:
@@ -201,7 +201,7 @@ properties:
 
   deployerProxyImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-deployer-proxy:v0.6.0
+    default: gcr.io/myelin-public/myelin/myelin-deployer-proxy:v0.8.0
     x-google-marketplace:
       type: IMAGE
       image:
@@ -213,7 +213,7 @@ properties:
 
   executorImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-exec:v0.6.0
+    default: gcr.io/myelin-public/myelin/myelin-exec:v0.8.0
     x-google-marketplace:
       type: IMAGE
       image:
