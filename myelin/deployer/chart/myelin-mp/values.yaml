@@ -89,3 +89,5 @@ myelin:
     enabled: false
   tf-job-operator:
     enabled: false
+  webappServer:
+    enabled: false

@@ -1,4 +1,4 @@
-MYELIN_VERSION=0.9
+MYELIN_VERSION=0.10
 REGISTRY=gcr.io/myelin-public
 APP_NAME=myelin
 NAMESPACE=test-ns
@@ -32,9 +32,10 @@ test-deploy:
 	kubectl create namespace test-ns
 	kubectl label namespace test-ns istio-injection=enabled
 	kubectl apply -n ${NAMESPACE} -f role/myelin-minimal-role.yaml
+	# set defaults in schema.yaml
 	~/bin/mpdev install \
 		  --deployer=${REGISTRY}/${APP_NAME}/deployer:${MYELIN_VERSION} \
-      --parameters='{"name": "myelin", "namespace": "test-ns"}'
+      --parameters='{"name": "myelin", "namespace": "test-ns", "myelin.prometheus.namespace": "prometheus", "myelin.prometheus.serviceName": "prometheus-operated", "myelin.prometheus-pushgateway.namespace": "myelin", "myelin.prometheus-pushgateway.serviceName": "myelin-app-prometheus-pushgateway", "myelin.axonController.prometheusRules.namespace": "prometheus"}'
 
 .PHONY: validate
 verify:

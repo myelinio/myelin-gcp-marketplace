@@ -15,6 +15,7 @@ properties:
     type: string
     title: Myelin Licence
     description: Licence
+    default: bla
 
   myelin.axonController.dockerNamespace:
     type: string
@@ -26,94 +27,116 @@ properties:
     type: string
     title: Axon logs bucket
     description: Axon controller saves logs in this bucket
+    default: bla
 
   myelin.axonController.config.artifactRepository.s3.region:
     type: string
     title: Axon logs bucket region
+    default: bla
 
   myelin.deployerController.config.artifactRepository.s3.bucket:
     type: string
     title: Deployer logs bucket
     description: Deployer controller saves logs in this bucket
+    default: bla
 
   myelin.deployerController.config.artifactRepository.s3.region:
     type: string
     title: Deployer logs bucket region
+    default: bla
 
   marketplace.dockerSecret:
     type: string
     title: Docker Secret
     description: Copy your base64 encoded docker secret
+    default: bla
 
   myelin.artifacts.accesskey:
     type: string
     title: Cloud Storage Access Key
     description: GCP storage access key
+    default: bla
 
   myelin.artifacts.secretkey:
     type: string
     title: Cloud Storage Secret Key
     description: GCP storage secret key
+    default: bla
 
   myelin.adminServer.adminUser:
     type: string
     title: Admin server user name
+    default: bla
 
   myelin.adminServer.adminPass:
     type: string
     title: Admin server password
+    default: bla
 
   myelin.adminServer.jwtToken:
     type: string
     title: Admin server JWT token
+    default: bla
 
   myelin.adminServer.jwtKey:
     type: string
     title: Admin server JWT key
+    default: bla
 
   myelin.prometheus.namespace:
     type: string
     title: Prometheus namespace
+    default: bla
 
   myelin.prometheus.serviceName:
     type: string
     title: Prometheus service name
+    default: bla
 
   myelin.prometheus-pushgateway.namespace:
     type: string
     title: Prometheus pushgateway namespace
+    default: bla
 
   myelin.prometheus-pushgateway.serviceName:
     type: string
     title: Prometheus pushgateway service name
+    default: bla
 
   myelin.axonController.prometheusRules.namespace:
     type: string
     title: Prometheus rules namespace
+    default: bla
 
   myelin.adminServer.oidc.clientId:
     type: string
     title: OIDC client id
+    default: bla
 
   myelin.adminServer.oidc.clientSecret:
     type: string
     title: OIDC client secret
+    default: bla
 
   myelin.adminServer.oidc.nonce:
     type: string
     title: OIDC nonce
+    default: bla
 
   myelin.adminServer.oidc.endpoint:
     type: string
     title: OIDC endpoint
+    default: bla
 
   myelin.adminServer.oidc.scope:
     type: string
     title: OIDC scope
+    default: bla
 
   myelin.adminServer.oidc.redirectUri:
     type: string
     title: OIDC redirect uri
+    default: bla
 
   adminServerImage:
     type: string
@@ -141,7 +164,7 @@ properties:
 
   axonControllerImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-axon-controller:v0.9.0
+    default: gcr.io/myelin-public/myelin/myelin-axon-controller:v0.10.0
     x-google-marketplace:
       type: IMAGE
       image:
@@ -153,7 +176,7 @@ properties:
 
   deployerControllerImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-deployer-controller:v0.9.0
+    default: gcr.io/myelin-public/myelin/myelin-deployer-controller:v0.10.0
     x-google-marketplace:
       type: IMAGE
       image:
@@ -165,7 +188,7 @@ properties:
 
   metricServerImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-metric-server:v0.9.0
+    default: gcr.io/myelin-public/myelin/myelin-metric-server:v0.10.0
     x-google-marketplace:
       type: IMAGE
       image:
@@ -177,7 +200,7 @@ properties:
 
   triggerServerImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-trigger-server:v0.9.0
+    default: gcr.io/myelin-public/myelin/myelin-trigger-server:v0.10.0
     x-google-marketplace:
       type: IMAGE
       image:
@@ -189,7 +212,7 @@ properties:
 
   triggerClientImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-trigger-client:v0.9.0
+    default: gcr.io/myelin-public/myelin/myelin-trigger-client:v0.10.0
     x-google-marketplace:
       type: IMAGE
       image:
@@ -201,7 +224,7 @@ properties:
 
   deployerProxyImage:
     type: string
-    default: gcr.io/myelin-public/myelin/myelin-deployer-proxy:v0.9.0
+    default: gcr.io/myelin-public/myelin/myelin-deployer-proxy:v0.10.0
     x-google-marketplace:
       type: IMAGE
       image:
@@ -210,18 +233,6 @@ properties:
             registry: myelin.repository #gcr.io
             repo: myelin.deployerProxy.imageName
             tag: myelin.deployerProxy.imageVersion
-
-  executorImage:
-    type: string
-    default: gcr.io/myelin-public/myelin/myelin-exec:v0.9.0
-    x-google-marketplace:
-      type: IMAGE
-      image:
-        generatedProperties:
-          splitToRegistryRepoTag:
-            registry: myelin.repository #gcr.io
-            repo: myelin.executorImage.imageName
-            tag: myelin.executorImage.imageVersion
 
   myelin.serviceAccount.name:
     type: string
@@ -269,11 +280,48 @@ properties:
                   - patch
                   - delete
               - apiGroups:
+                  - "*"
+                resources:
+                  - horizontalpodautoscalers
+                verbs:
+                  - create
+                  - get
+                  - list
+                  - watch
+                  - update
+                  - patch
+                  - delete
+              - apiGroups:
                   - ""
+                resourceNames:
+                  - myelin-admin-dashboard-csrf
+                  - myelin-admin-key-holder
+                  - myelin-admin-certs
+                  - myelin-admin-secret
+                resources:
+                  - secrets
+                verbs:
+                  - create
+                  - get
+                  - list
+                  - watch
+                  - update
+                  - patch
+                  - delete
+              - apiGroups:
+                  - ""
+                resourceNames:
+                  - regcred
                 resources:
                   - secrets
                 verbs:
                   - get
+              - apiGroups:
+                  - ""
+                resources:
+                  - secrets
+                verbs:
+                  - create
               - apiGroups:
                   - ""
                 resources:
@@ -282,7 +330,7 @@ properties:
                   - create
                   - delete
               - apiGroups:
-                  - myelinproj.io
+                  - argoproj.io
                 resources:
                   - workflows
                   - workflows/finalizers
@@ -295,7 +343,7 @@ properties:
                   - patch
                   - delete
               - apiGroups:
-                  - myelinproj.io
+                  - myelin.io
                 resources:
                   - axons
                   - axons/finalizers
@@ -308,7 +356,7 @@ properties:
                   - patch
                   - delete
               - apiGroups:
-                  - myelinproj.io
+                  - myelin.io
                 resources:
                   - deployers
                   - deployers/finalizers
@@ -393,6 +441,8 @@ properties:
                 resources:
                   - destinationrules
                   - destinationrules/exec
+                  - gateways
+                  - gateways/exec
                 verbs:
                   - create
                   - get
@@ -402,10 +452,11 @@ properties:
                   - patch
                   - delete
               - apiGroups:
-                  - "networking.istio.io"
+                  - "security.istio.io"
                 resources:
-                  - gateways
-                  - gateways/exec
+                  - authorizationpolicies
+                  - requestauthentications
+                  - peerauthentications
                 verbs:
                   - create
                   - get
