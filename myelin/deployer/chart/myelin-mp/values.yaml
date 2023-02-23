@@ -37,10 +37,7 @@ myelin:
     agent:
       flexVolumeDirPath: /home/kubernetes/flexvolume
   adminServer:
-    enabled: true
-    enableTLS: false
-    gatewayHosts:
-      - "'*'"
+    enabled: false
     apiServer:
       pullPolicy: Always
       host: "'*'"
@@ -48,12 +45,7 @@ myelin:
       prefix: /myelin-admin-api/
       enabled: true
     webappServer:
-      pullPolicy: Always
-      apiUrl: "'\\/myelin-admin-api'"
-      authRestUrl: "''"
-      host: "'*'"
-      rewritePrefix: true
-      prefix: /myelin-admin-webapp/
+      enabled: false
     modelsPublicApi:
       enabled: false
   axonController:
@@ -89,5 +81,12 @@ myelin:
     enabled: false
   tf-job-operator:
     enabled: false
-  webappServer:
+  argo-workflows:
     enabled: false
+  prometheus-pushgateway:
+    enabled: false
+  alermanagerconfig:
+    enabled: false
+
+prometheus-pushgateway:
+  enabled: false

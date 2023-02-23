@@ -15,7 +15,6 @@ properties:
     type: string
     title: Myelin Licence
     description: Licence
-    default: bla
 
   myelin.axonController.dockerNamespace:
     type: string
@@ -27,116 +26,94 @@ properties:
     type: string
     title: Axon logs bucket
     description: Axon controller saves logs in this bucket
-    default: bla
 
   myelin.axonController.config.artifactRepository.s3.region:
     type: string
     title: Axon logs bucket region
-    default: bla
 
   myelin.deployerController.config.artifactRepository.s3.bucket:
     type: string
     title: Deployer logs bucket
     description: Deployer controller saves logs in this bucket
-    default: bla
 
   myelin.deployerController.config.artifactRepository.s3.region:
     type: string
     title: Deployer logs bucket region
-    default: bla
 
   marketplace.dockerSecret:
     type: string
     title: Docker Secret
     description: Copy your base64 encoded docker secret
-    default: bla
 
   myelin.artifacts.accesskey:
     type: string
     title: Cloud Storage Access Key
     description: GCP storage access key
-    default: bla
 
   myelin.artifacts.secretkey:
     type: string
     title: Cloud Storage Secret Key
     description: GCP storage secret key
-    default: bla
 
   myelin.adminServer.adminUser:
     type: string
     title: Admin server user name
-    default: bla
 
   myelin.adminServer.adminPass:
     type: string
     title: Admin server password
-    default: bla
 
   myelin.adminServer.jwtToken:
     type: string
     title: Admin server JWT token
-    default: bla
 
   myelin.adminServer.jwtKey:
     type: string
     title: Admin server JWT key
-    default: bla
 
   myelin.prometheus.namespace:
     type: string
     title: Prometheus namespace
-    default: bla
 
   myelin.prometheus.serviceName:
     type: string
     title: Prometheus service name
-    default: bla
 
   myelin.prometheus-pushgateway.namespace:
     type: string
     title: Prometheus pushgateway namespace
-    default: bla
 
   myelin.prometheus-pushgateway.serviceName:
     type: string
     title: Prometheus pushgateway service name
-    default: bla
 
   myelin.axonController.prometheusRules.namespace:
     type: string
     title: Prometheus rules namespace
-    default: bla
 
   myelin.adminServer.oidc.clientId:
     type: string
     title: OIDC client id
-    default: bla
 
   myelin.adminServer.oidc.clientSecret:
     type: string
     title: OIDC client secret
-    default: bla
 
   myelin.adminServer.oidc.nonce:
     type: string
     title: OIDC nonce
-    default: bla
 
   myelin.adminServer.oidc.endpoint:
     type: string
     title: OIDC endpoint
-    default: bla
 
   myelin.adminServer.oidc.scope:
     type: string
     title: OIDC scope
-    default: bla
 
   myelin.adminServer.oidc.redirectUri:
     type: string
     title: OIDC redirect uri
-    default: bla
 
   adminServerImage:
     type: string

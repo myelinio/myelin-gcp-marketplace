@@ -37,7 +37,8 @@ test-deploy:
 		  --deployer=${REGISTRY}/${APP_NAME}/deployer:${MYELIN_VERSION} \
       --parameters='{"name": "myelin", "namespace": "test-ns", "myelin.prometheus.namespace": "prometheus", "myelin.prometheus.serviceName": "prometheus-operated", "myelin.prometheus-pushgateway.namespace": "myelin", "myelin.prometheus-pushgateway.serviceName": "myelin-app-prometheus-pushgateway", "myelin.axonController.prometheusRules.namespace": "prometheus"}'
 
-.PHONY: validate
+.PHONY: verify
 verify:
+	# this creates a new namespace in the active cluster and runs the installation process using the default values from data-test/schema and data/test/chart
 	~/bin/mpdev verify \
 		  --deployer=${REGISTRY}/${APP_NAME}/deployer:${MYELIN_VERSION}

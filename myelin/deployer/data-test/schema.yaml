@@ -35,7 +35,7 @@ properties:
     type: string
     default: none
 
-  myelin.prometheus.namespace:
+  myelin.prometheus.prometheusNamespace:
     type: string
     default: prometheus
 
@@ -43,7 +43,7 @@ properties:
     type: string
     default: prometheus-operated
 
-  myelin.prometheus-pushgateway.namespace:
+  myelin.prometheus-pushgateway.pushgatewayNamespace:
     type: string
     default: prometheus
 
@@ -51,7 +51,7 @@ properties:
     type: string
     default: myelin-prometheus-pushgateway
 
-  myelin.axonController.prometheusRules.namespace:
+  myelin.axonController.prometheusRules.prometheusRulesNamespace:
     type: string
     default: prometheus
 
