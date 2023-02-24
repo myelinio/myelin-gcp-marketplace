@@ -37,7 +37,7 @@ properties:
 
   myelin.prometheus.prometheusNamespace:
     type: string
-    default: prometheus
+#    default: prometheus1
 
   myelin.prometheus.serviceName:
     type: string
@@ -45,7 +45,7 @@ properties:
 
   myelin.prometheus-pushgateway.pushgatewayNamespace:
     type: string
-    default: prometheus
+    default: prometheus2
 
   myelin.prometheus-pushgateway.serviceName:
     type: string
@@ -53,7 +53,7 @@ properties:
 
   myelin.axonController.prometheusRules.prometheusRulesNamespace:
     type: string
-    default: prometheus
+    default: prometheus3
 
   myelin.adminServer.oidc.clientId:
     type: string
