@@ -1,4 +1,4 @@
-MYELIN_VERSION=0.10
+MYELIN_VERSION=0.11
 REGISTRY=gcr.io/myelin-public
 APP_NAME=myelin
 NAMESPACE=test-ns
